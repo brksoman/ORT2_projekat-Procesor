@@ -136,6 +136,7 @@
 "KMOPR1", "Fetch2.JSR", "A5h"
 "KMOPR1", "Fetch2.RTS", "B5h"
 "KMOPR1", "Fetch2.RTI", "ACh"
+"KMOPR1", "Fetch2.LEA", "BFh"
 
 // U jednom redu se nalazi konfiguracija za jedan uslov visestrukog uslovnog skoka kod nacina adresiranja
 // Konfiguracija za logicko kolo se zadaje po formatu: Naziv jedinice ("KMADR1"), Naziv logickog uslova za visestruki uslovni skok ("Fetch2.regdir"), Adresa u mikroprogramskoj memoriji ("26"). Adresa u mikroprogramskoj memoriji moze biti  data kao decimalna ili heksadecimalna vrednost. Decemalna vrednost sadrzi samo decimalne cifre, dok heksadecimalna vrednost sadrzi heksadecimalne cifre i zavrsava se slovom "h";
