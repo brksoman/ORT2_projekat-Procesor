@@ -1,0 +1,21 @@
+100, LD #1000
+101, ST R(1)	// Trenutna adresa je u R(1).
+102, LD (R(1))	// Uzmemo prvi kao min.
+103, ST R(0)
+
+104, LD R(1)	// Uzmemo trenutno adresu i uvecamo je.
+105, ADD #1
+106, ST R(1)
+
+107, LD (R(1))		// Ucitavamo trenutni clan niza
+
+108, SUB R(0)		// Ako je trenutni manji od min.
+109, BNNEG #10C
+10A, ADD R(0)		// Pamtimo ga.
+10B, ST R(0)
+
+10C, LD R(1)		// Da li smo stigli do kraja.
+10D, SUB #1020
+10E, BNEQ #104
+
+10F, HALT

@@ -1,0 +1,65 @@
+// Program je napisan za 10 brojeva u nizu, ali naravno, na isti nacin radi i sa 20.
+0100, 20		// LD #1000
+0101, 10
+0102, 00		// end
+0103, 3D		// ST R(1)		(pamti se prva adresa u nizu)
+0104, 29		// LD (R(1))	(ucitava se prvi clan niza)
+0105, 00		// end (pomeraj - 0)
+0106, 3C		// ST R(0) (uzima se kao prvi minimum)
+
+0107, 2D		// LD R(1) (uzima se prethodna adresa)
+0108, 60		// ADD #2 (ide se na sledecu adresu)
+0109, 00
+010A, 02		// end
+010B, 3D		// ST R(1) (pamti se nova)
+
+010C, 29		// LD (R(1))	(ucitava se trenutna vrednost)
+010D, 00		// end
+
+010E, 7C		// SUB R(0)		(porede se trenutna vrednost i trenutni minimum)
+010F, 0B		// BNNEG #02  (ako je manja, preskace se proces pamcenja nove)
+0110, 02		// end
+0111, 6C		// ADD R(0)		(vraca se stara trenutna vrednost)
+0112, 3C		// ST R(0)		(pamti se kao minimum)
+
+0113, 2D		// LD R(1)		(provera da li je dosao kraj niza)
+0114, 70		// SUB #1012	(pocetak 20. clana)
+0115, 10
+0116, 12		// end
+0117, 08		// BEQL #03	(petlja)
+0118, 03		// end
+0119, 10		// JMP #0107
+011A, 01
+011B, 07		// end
+
+011C, 2C		// LD R(0)		(min. se upamti u memoriji)
+011D, 38		// ST (1100)
+011E, 11
+011F, 00		// end
+0120, E0		// HALT
+
+
+1000, 20	// 1
+1001, B0
+1002, 05	// 2
+1003, CD
+1004, 15	// 3
+1005, B0
+1006, 1C	// 4
+1007, 4F
+1008, 05	// 5 MIN - #053A
+1009, 3A
+100A, 1C	// 6
+100B, 07
+100C, AB	// 7
+100D, CD
+100E, 35	// 8
+100F, 79
+1010, 07	// 9
+1011, A3
+1012, 37	// 10
+1013, F8
+
+
+0, 64
+2, 15
